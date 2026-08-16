@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neeraj Gupta - Insurance Advisor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Neeraj Gupta</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#policies" class="nav-link">Policies</a></li>
+                    <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Secure Your Future with Expert Insurance Advice</h1>
+                <p>Professional insurance consulting tailored to your needs</p>
+                <button class="btn btn-primary" id="consultBtn">Get Free Consultation</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Clients Served</p>
+                </div>
+                <div class="stat">
+                    <h3>15+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat">
+                    <h3>98%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm Neeraj Gupta, a certified insurance advisor with over 15 years of experience in the insurance industry. My mission is to help clients find the right insurance solutions that protect their assets and provide peace of mind.</p>
+                    <p>With expertise across multiple insurance domains, I provide personalized recommendations based on individual needs and financial goals.</p>
+                    <div class="qualifications">
+                        <h3>Qualifications & Certifications</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Certified Insurance Advisor</li>
+                            <li><i class="fas fa-check-circle"></i> IRDAI Licensed Broker</li>
+                            <li><i class="fas fa-check-circle"></i> Financial Planning Certificate</li>
+                            <li><i class="fas fa-check-circle"></i> Customer Service Excellence Award</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>My Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Health Insurance</h3>
+                    <p>Comprehensive health coverage for you and your family, including critical illness and accidental benefits.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car"></i></div>
+                    <h3>Auto Insurance</h3>
+                    <p>Third-party and comprehensive motor insurance plans with fast claim settlement.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3>Home Insurance</h3>
+                    <p>Protect your property and belongings with comprehensive home insurance coverage.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Business Insurance</h3>
+                    <p>Tailored business insurance solutions to protect your enterprise and assets.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-umbrella"></i></div>
+                    <h3>Life Insurance</h3>
+                    <p>Term, endowment, and investment-linked life insurance plans for financial security.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Investment Planning</h3>
+                    <p>Strategic investment guidance integrated with insurance for optimal wealth creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policies Section -->
+    <section id="policies" class="policies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Insurance Policies</h2>
+                <p>Customizable collection of insurance products we specialize in</p>
+            </div>
+            
+            <div class="policies-management">
+                <button class="btn btn-secondary" id="addPolicyBtn">
+                    <i class="fas fa-plus"></i> Add New Policy
+                </button>
+            </div>
+
+            <div class="policies-grid" id="policiesContainer">
+                <!-- Policies will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Add/Edit Policy Modal -->
+    <div class="modal" id="policyModal">
+        <div class="modal-content">
+            <span class="close" id="closePolicyModal">&times;</span>
+            <h2 id="policyModalTitle">Add New Policy</h2>
+            <form id="policyForm">
+                <div class="form-group">
+                    <label for="policyName">Policy Name</label>
+                    <input type="text" id="policyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="policyType">Policy Type</label>
+                    <select id="policyType" required>
+                        <option value="">Select Type</option>
+                        <option value="Health">Health Insurance</option>
+                        <option value="Auto">Auto Insurance</option>
+                        <option value="Home">Home Insurance</option>
+                        <option value="Business">Business Insurance</option>
+                        <option value="Life">Life Insurance</option>
+                        <option value="Travel">Travel Insurance</option>
+                        <option value="Pet">Pet Insurance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="policyDescription">Description</label>
+                    <textarea id="policyDescription" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="policyBenefits">Key Benefits (comma-separated)</label>
+                    <textarea id="policyBenefits" rows="2" placeholder="e.g., Coverage up to 10L, 24/7 support, Zero waiting period"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="policyCoverage">Coverage Amount</label>
+                    <input type="text" id="policyCoverage" placeholder="e.g., ₹5 Lakh - ₹50 Lakh">
+                </div>
+                <div class="form-group">
+                    <label for="policyPremium">Premium Range</label>
+                    <input type="text" id="policyPremium" placeholder="e.g., ₹2,000/year - ₹10,000/year">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Policy</button>
+                    <button type="button" class="btn btn-secondary" id="cancelPolicyBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Reviews</h2>
+                <p>What our satisfied clients have to say</p>
+            </div>
+            
+            <div class="reviews-management">
+                <button class="btn btn-secondary" id="addReviewBtn">
+                    <i class="fas fa-star"></i> Add Review
+                </button>
+            </div>
+
+            <div class="reviews-container" id="reviewsContainer">
+                <!-- Reviews will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Add/Edit Review Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <span class="close" id="closeReviewModal">&times;</span>
+            <h2 id="reviewModalTitle">Add Client Review</h2>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="reviewName">Client Name</label>
+                    <input type="text" id="reviewName" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewProfession">Profession/Company</label>
+                    <input type="text" id="reviewProfession" placeholder="e.g., Engineer at TechCorp">
+                </div>
+                <div class="form-group">
+                    <label for="reviewRating">Rating</label>
+                    <div class="star-rating" id="starRating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="reviewRating" required>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText">Review Text</label>
+                    <textarea id="reviewText" rows="4" placeholder="Share your experience" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Post Review</button>
+                    <button type="button" class="btn btn-secondary" id="cancelReviewBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Consultation Request Modal -->
+    <div class="modal" id="consultationModal">
+        <div class="modal-content">
+            <span class="close" id="closeConsultationModal">&times;</span>
+            <h2>Free Consultation Request</h2>
+            <form id="consultationForm">
+                <div class="form-group">
+                    <label for="consultName">Your Name</label>
+                    <input type="text" id="consultName" required>
+                </div>
+                <div class="form-group">
+                    <label for="consultEmail">Email</label>
+                    <input type="email" id="consultEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="consultPhone">Phone Number</label>
+                    <input type="tel" id="consultPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="consultType">Insurance Type Interested In</label>
+                    <select id="consultType" required>
+                        <option value="">Select Type</option>
+                        <option value="Health">Health Insurance</option>
+                        <option value="Auto">Auto Insurance</option>
+                        <option value="Home">Home Insurance</option>
+                        <option value="Business">Business Insurance</option>
+                        <option value="Life">Life Insurance</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="consultMessage">Your Message</label>
+                    <textarea id="consultMessage" rows="3" placeholder="Tell me about your needs"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Request Consultation</button>
+                    <button type="button" class="btn btn-secondary" id="cancelConsultBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <h3>Phone</h3>
+                    <p>+91 9876543210</p>
+                    <a href="tel:+919876543210" class="contact-link">Call Now</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email</h3>
+                    <p>neeraj@insuranceadvisor.com</p>
+                    <a href="mailto:neeraj@insuranceadvisor.com" class="contact-link">Send Email</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Location</h3>
+                    <p>New Delhi, India</p>
+                    <a href="#" class="contact-link">Get Directions</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Hours</h3>
+                    <p>Mon-Sat: 9AM - 6PM</p>
+                    <p style="font-size: 0.9em; margin-top: 5px;">Sunday: By Appointment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Neeraj Gupta</h3>
+                    <p>Professional Insurance Advisor</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#policies">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Health Insurance</a></li>
+                        <li><a href="#">Auto Insurance</a></li>
+                        <li><a href="#">Home Insurance</a></li>
+                        <li><a href="#">Business Insurance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Neeraj Gupta - Insurance Advisor. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
